@@ -2,72 +2,34 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7474955516:AAG6hNIVmwFYtZwi1WW0H3d5GX7Ihh4gQbQ")
+API_ID = int(os.environ.get("API_ID", "21459238"))
+API_HASH = os.environ.get("API_HASH", "0cef1924d139587654bc18402d2b512d")
 
+OWNER_ID = int(os.environ.get("OWNER_ID", "1782088532"))
+DB_URL = os.environ.get("DB_URL", "mongodb+srv://shubhashankar246:nEWTylzLZpiuysRh@cluster0.kpecd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_NAME = os.environ.get("DB_NAME", "shubhashankar246")
 
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002448726887"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002327893137"))
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7400218321:AAEszmFIC9rmUqxpLJAI1u-Qz7U9HZZ7ajw")
-API_ID = int(os.environ.get("API_ID", "ec1b720c2e0035a310d47ebd5655b676")
-API_HASH = os.environ.get("API_HASH", "20154522")
-
-
-OWNER_ID = int(os.environ.get("OWNER_ID", "7003079691"))
-DB_URL = os.environ.get("DB_URL", "mongodb+srv://BLAZEOP123:BLAZEOP123@cluster0.kjlpd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DB_NAME = os.environ.get("DB_NAME", "madflixbotz")
-
-
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1001937695139"))
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002075397287"))
-
-
-FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "600")) # auto delete in seconds
-
-
+FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "600"))  # auto delete in seconds
 PORT = os.environ.get("PORT", "8080")
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
-
-
-try:
-    ADMINS=[7451167149]
-    for x in (os.environ.get("ADMINS", "7003079691").split()):
-        ADMINS.append(int(x))
-except ValueError:
-        raise Exception("Your Admins list does not contain valid integers.")
-
-
-
-
-
-
-
-
+ADMINS = []
+for x in os.environ.get("ADMINS", "1782088532").split():
+    ADMINS.append(int(x))
 
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "True") == "True" else False
-
 DISABLE_CHANNEL_BUTTON = True if os.environ.get('DISABLE_CHANNEL_BUTTON', "True") == "True" else False
 
 BOT_STATS_TEXT = "<b>BOT UPTIME :</b>\n{uptime}"
-
-
-
-
-
-
-
 USER_REPLY_TEXT = "❌Don't Send Me Messages Directly I'm Only File Share Bot !"
-
 START_MSG = os.environ.get("START_MESSAGE", "Hello {mention}\n\nI Can Store Private Files In Specified Channel And Other Users Can Access It From Special Link.")
-
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {mention}\n\n<b>You Need To Join In My Channel/Group To Use Me\n\nKindly Please Join Channel</b>")
-
-
-
-
-
-ADMINS.append(OWNER_ID)
-ADMINS.append(7003079691)
 
 LOG_FILE_NAME = "filesharingbot.txt"
 
@@ -86,9 +48,9 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
    
 
 
